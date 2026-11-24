@@ -1,0 +1,42 @@
+{
+  "id": "solidcraft-git",
+  "name": "SolidCraft Git Integration",
+  "version": "0.1.0",
+  "description": "Save designs directly to git with auto-generated commit messages on save",
+  "author": "User",
+  "license": "MIT",
+  "runtime": {
+    "language": "wasm",
+    "entrypoint": "index.wasm",
+    "limits": {
+      "memory_mb": 64,
+      "timeout_s": 30,
+      "fuel": 100000000
+    }
+  },
+  "permissions": {
+    "command_groups": ["file.save", "file.open"],
+    "execute_process": {
+      "allow": ["git"]
+    },
+    "folders": []
+  },
+  "ui": {
+    "menu": [
+      {
+        "label": "Commit to Git",
+        "id": "git-commit",
+        "shortcut": "ctrl+alt+g",
+        "scope": "document"
+      }
+    ],
+    "dialog": {
+      "title": "Commit to Git",
+      "width": 500,
+      "height": 400
+    }
+  },
+  "hooks": {
+    "file.saved": "on_save"
+  }
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Basic commit flow",
+    "description": "Test analyzing design changes and generating commit message",
+    "steps": [
+      {
+        "setup": {
+          "current": {
+            "name": "maldivian_tripleframe",
+            "parameters": {
+              "paint_w": "300.04",
+              "paint_h": "401.64",
+              "frame_depth": "12.7"
+            },
+            "bodies": [
+              {"name": "OuterFrame", "volume_mm3": 4885393.5},
+              {"name": "Center", "volume_mm3": 2062100.1}
+            ],
+            "features": 8
+          },
+          "previous": {
+            "name": "maldivian_tripleframe",
+            "parameters": {
+              "paint_w": "280.0",
+              "paint_h": "401.64",
+              "frame_depth": "12.7"
+            },
+            "bodies": [
+              {"name": "OuterFrame", "volume_mm3": 4700000.0},
+              {"name": "Center", "volume_mm3": 2000000.0}
+            ],
+            "features": 7
+          }
+        },
+        "expect": {
+          "contains": ["Updated 'paint_w'", "volume", "feature"]
+        }
+      }
+    ]
+  },
+  {
+    "name": "No changes detection",
+    "description": "Design with no changes should return generic message",
+    "steps": [
+      {
+        "setup": {
+          "current": {
+            "name": "design",
+            "parameters": {"size": "100"},
+            "bodies": [{"name": "Body1", "volume_mm3": 1000000.0}],
+            "features": 5
+          },
+          "previous": {
+            "name": "design",
+            "parameters": {"size": "100"},
+            "bodies": [{"name": "Body1", "volume_mm3": 1000000.0}],
+            "features": 5
+          }
+        },
+        "expect": {
+          "contains": ["Updated design"]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Parameter addition",
+    "description": "New parameter should be detected",
+    "steps": [
+      {
+        "setup": {
+          "current": {
+            "name": "design",
+            "parameters": {"size": "100", "new_param": "50"},
+            "bodies": [],
+            "features": 0
+          },
+          "previous": {
+            "name": "design",
+            "parameters": {"size": "100"},
+            "bodies": [],
+            "features": 0
+          }
+        },
+        "expect": {
+          "contains": ["Added parameter"]
+        }
+      }
+    ]
+  }
+]
