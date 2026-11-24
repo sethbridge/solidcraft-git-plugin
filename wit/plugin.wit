@@ -1,0 +1,9 @@
+package craft:plugin@0.2.0;
+
+world command-plugin {
+  export entry;
+}
+
+interface entry {
+  commit: func(params: string) -> result<string, string>;
+}

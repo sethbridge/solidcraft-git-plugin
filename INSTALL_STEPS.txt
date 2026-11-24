@@ -1,0 +1,60 @@
+==================================================
+SolidCraft Git Plugin - Installation Instructions
+==================================================
+
+PLUGIN LOCATION: C:\Users\sethb\solidcraft-git-plugin\solidcraft-git-plugin.zip
+
+INSTALLATION METHOD 1: GUI (Recommended)
+=========================================
+1. Open SolidCraft
+2. Click File → Preferences
+3. Go to Plugins tab  
+4. Click "Install Plugin..."
+5. Select: solidcraft-git-plugin.zip
+6. Review permissions (requires "file" command group)
+7. Click "Install"
+8. Restart SolidCraft if prompted
+
+INSTALLATION METHOD 2: Command Line
+====================================
+solidcraft-cli plugin install C:\Users\sethb\solidcraft-git-plugin\solidcraft-git-plugin.zip
+
+VERIFY INSTALLATION
+===================
+In SolidCraft:
+1. File → Preferences → Plugins
+2. Look for "SolidCraft Git" in the plugins list
+3. Should show version 0.1.0
+
+USAGE
+=====
+Once installed, you'll see the "Commit" command in the Plugins menu.
+
+WHAT IT DOES
+============
+- Provides a Git commit interface for SolidCraft designs
+- Takes a commit message as input
+- Integrates with git file operations
+- Fully parametrized and extensible
+
+BUILD ARTIFACTS
+===============
+- dist/solidcraft-git/plugin.json - Plugin manifest (validated ✓)
+- dist/solidcraft-git/index.wasm - WASM component module  
+- solidcraft-git-plugin.zip - Ready to install
+
+NEXT STEPS
+==========
+1. Install the plugin using method 1 or 2 above
+2. Test by opening a design and using the Commit command
+3. Customize the entry point in the manifest as needed
+
+TROUBLESHOOTING
+===============
+If installation fails:
+- Run: solidcraft-cli plugin check solidcraft-git-plugin.zip
+- Check SolidCraft version (requires 0.48.1+)
+- Verify plugin.json is valid JSON
+- Ensure WASM module is present
+
+STATUS: ✓ READY TO INSTALL
